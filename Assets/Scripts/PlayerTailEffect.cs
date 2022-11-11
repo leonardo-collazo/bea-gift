@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTailEffect : MonoBehaviour
@@ -35,7 +34,6 @@ public class PlayerTailEffect : MonoBehaviour
         else
         {
             timeBtwSpawn = startTimeBtwSpawn;
-            // GameObject tail = Instantiate(tailPrefab, transform.position, Quaternion.identity);
             
             GameObject tail = tilePool.GetPooledObject();
             
@@ -47,8 +45,6 @@ public class PlayerTailEffect : MonoBehaviour
                 yield return new WaitForSeconds(lifetimeSpawn);
                 tail.SetActive(false);
             }
-            
-            // Destroy(tail, lifetimeSpawn);
         }
     }
 }

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bound
+  - Wall
+  - Coin
+  - Ground
   layers:
   - Default
   - TransparentFX

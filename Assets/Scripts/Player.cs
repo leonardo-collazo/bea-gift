@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    #region Variables
     [SerializeField] private float jumpForce;
     [SerializeField] private int maxAmountJumps;
     [SerializeField] private float checkRadius;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool IsGrounded => isGrounded;
+    #endregion
 
     private void Start()
     {
@@ -25,27 +27,32 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
         if (Input.GetMouseButtonDown(0) && amountJumps > 0)
         {
+            Jump();
+            isGrounded = false;
             amountJumps--;
-            Jump();
-        }
-        else if (Input.GetMouseButtonDown(0) && amountJumps == 0 && isGrounded)
-        {
-            Jump();
-        }
-
-        if (isGrounded)
-        {
-            amountJumps = maxAmountJumps;
         }
     }
 
+    // Applies a force to the player in the direction of the y-axis
     void Jump()
     {
         rb.velocity = Vector2.zero;
         rb.AddForce(new Vector2(0, jumpForce));
+    }
+
+    void ResetJumps()
+    {
+        amountJumps = maxAmountJumps;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            ResetJumps();
+        }
     }
 }

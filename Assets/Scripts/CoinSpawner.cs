@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class WallSpawner : MonoBehaviour
+public class CoinSpawner : MonoBehaviour
 {
     private float time;
-    private GameObject wall;
+    private GameObject coin;
 
     [SerializeField] private float maxTime;
     [SerializeField] private float maxHeight;
     [SerializeField] private float minHeight;
-    [SerializeField] private GameObject wallPrefab;
-    [SerializeField] private ObjectPooler wallPool;
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private ObjectPooler coinPool;
 
     private void Start()
     {
@@ -18,17 +18,17 @@ public class WallSpawner : MonoBehaviour
 
     void Update()
     {
-        SpawnWall();
+        SpawnCoin();
     }
 
     // Spawns a wall after certain amount of time
-    private void SpawnWall()
+    private void SpawnCoin()
     {
         if (time <= 0)
         {
-            wall = wallPool.GetPooledObject();
-            wall.transform.position = transform.position + new Vector3(0, Random.Range(minHeight, maxHeight), 0);
-            wall.SetActive(true);
+            coin = coinPool.GetPooledObject();
+            coin.transform.position = transform.position + new Vector3(0, Random.Range(minHeight, maxHeight), 0);
+            coin.SetActive(true);
             time = maxTime;
         }
 
