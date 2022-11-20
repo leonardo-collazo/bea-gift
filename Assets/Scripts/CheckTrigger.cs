@@ -11,14 +11,13 @@ public class CheckTrigger : MonoBehaviour
             // Add score
             Debug.Log("Add Score");
             collision.gameObject.SetActive(false);
-            // Destroy(collision.gameObject, 0.02f);
         }
         
         if (collision.gameObject.CompareTag("Wall"))
         {
             // Game Over
             Debug.Log("Game Over!");
-            Destroy(gameObject, 0.02f);
+            // Destroy(gameObject, 0.02f);
         }
     }
 }
