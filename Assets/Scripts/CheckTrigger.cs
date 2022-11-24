@@ -9,15 +9,14 @@ public class CheckTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             // Add score
-            Debug.Log("Add Score");
+            GameManager.Instance.AddScore();
             collision.gameObject.SetActive(false);
         }
         
         if (collision.gameObject.CompareTag("Wall"))
         {
             // Game Over
-            Debug.Log("Game Over!");
-            // Destroy(gameObject, 0.02f);
+            GameManager.Instance.GameOver();
         }
     }
 }
