@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     // Applies a force to the player in the direction of the y-axis
     void Jump()
     {
+        FindObjectOfType<AudioManager>().Play("Jump");
         rb.velocity = Vector2.zero;
         rb.AddForce(new Vector2(0, jumpForce));
     }
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            FindObjectOfType<AudioManager>().Play("Land");
             isGrounded = true;
             ResetJumps();
         }

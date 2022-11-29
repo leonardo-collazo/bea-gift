@@ -9,6 +9,7 @@ public class CheckTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             // Add score
+            FindObjectOfType<AudioManager>().Play("Coin");
             GameManager.Instance.AddScore();
             collision.gameObject.SetActive(false);
         }
@@ -16,7 +17,9 @@ public class CheckTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             // Game Over
+            FindObjectOfType<AudioManager>().Play("GameOver");
             GameManager.Instance.GameOver();
+            Destroy(this.gameObject, 0.02f);
         }
     }
 }

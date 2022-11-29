@@ -48,6 +48,12 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        StartCoroutine(GameOverCoroutine());
+    }
+
+    private IEnumerator GameOverCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
         int currentHighScore = PlayerPrefs.GetInt("HighScore");
 
         if (score > currentHighScore)
@@ -56,7 +62,7 @@ public class GameManager : MonoBehaviour
         }
 
         gameOverPanel.SetActive(true);
-        
+
         currentScoreText.text = score.ToString();
         highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
