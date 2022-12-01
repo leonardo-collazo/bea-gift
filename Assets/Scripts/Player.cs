@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private bool isGrounded;
 
-    [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask whatIsGround;
+    [SerializeField] Animator animator;
 
     private int amountJumps;
     private Rigidbody2D rb;
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     // Applies a force to the player in the direction of the y-axis
     void Jump()
     {
+        animator.SetTrigger("jump");
         FindObjectOfType<AudioManager>().Play("Jump");
         rb.velocity = Vector2.zero;
         rb.AddForce(new Vector2(0, jumpForce));

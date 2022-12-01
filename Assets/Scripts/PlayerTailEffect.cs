@@ -19,7 +19,7 @@ public class PlayerTailEffect : MonoBehaviour
 
     void Update()
     {
-        if (!player.IsGrounded)
+        if (player.IsGrounded)
         {
             StartCoroutine(StartEffect());
         }

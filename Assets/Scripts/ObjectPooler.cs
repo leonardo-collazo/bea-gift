@@ -6,7 +6,7 @@ public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler SharedInstance;
     public List<GameObject> pooledObjects;
-    public GameObject objectToPool;
+    public GameObject[] objectsToPool;
     public int amountToPool;
 
     void Awake()
@@ -20,6 +20,18 @@ public class ObjectPooler : MonoBehaviour
         // Loop through list of pooled objects,deactivating them and adding them to the list 
         pooledObjects = new List<GameObject>();
 
+        foreach (GameObject objectToPool in objectsToPool)
+        {
+            for (int i = 0; i < amountToPool; i++)
+            {
+                GameObject obj = Instantiate(objectToPool);
+                obj.SetActive(false);
+                pooledObjects.Add(obj);
+                obj.transform.SetParent(transform); // set as children of Spawn Manager
+            }
+        }
+        
+        /*
         for (int i = 0; i < amountToPool; i++)
         {
             GameObject obj = Instantiate(objectToPool);
@@ -27,12 +39,13 @@ public class ObjectPooler : MonoBehaviour
             pooledObjects.Add(obj);
             obj.transform.SetParent(transform); // set as children of Spawn Manager
         }
+        */
     }
 
     public GameObject GetPooledObject()
     {
         // For as many objects as are in the pooledObjects list
-        for (int i = 0; i < pooledObjects.Count; i++)
+        for (int i = Random.Range(0, pooledObjects.Count);;)
         {
             // if the pooled objects is NOT active, return that object 
             if (!pooledObjects[i].activeInHierarchy)
@@ -40,8 +53,6 @@ public class ObjectPooler : MonoBehaviour
                 return pooledObjects[i];
             }
         }
-        // otherwise, return null   
-        return null;
     }
 
 }

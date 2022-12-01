@@ -8,7 +8,6 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField] private float maxTime;
     [SerializeField] private float maxHeight;
     [SerializeField] private float minHeight;
-    [SerializeField] private GameObject coinPrefab;
     [SerializeField] private ObjectPooler coinPool;
 
     private void Start()

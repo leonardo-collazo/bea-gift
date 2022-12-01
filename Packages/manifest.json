@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.unity.2d.animation": "3.2.6",
+    "com.unity.2d.pixel-perfect": "2.1.0",
+    "com.unity.2d.psdimporter": "2.1.6",
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.2d.spriteshape": "3.0.14",
+    "com.unity.2d.tilemap": "1.0.0",
     "com.unity.adaptiveperformance": "4.0.1",
     "com.unity.adaptiveperformance.samsung.android": "4.0.1",
     "com.unity.collab-proxy": "1.17.6",
