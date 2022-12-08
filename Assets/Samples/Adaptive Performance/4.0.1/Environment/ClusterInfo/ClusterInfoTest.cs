@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
 using UnityEngine.UI;

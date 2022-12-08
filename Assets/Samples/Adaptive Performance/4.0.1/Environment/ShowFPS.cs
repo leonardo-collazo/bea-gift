@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.AdaptivePerformance;
+using UnityEngine.UI;
 
 public class ShowFPS : MonoBehaviour
 {

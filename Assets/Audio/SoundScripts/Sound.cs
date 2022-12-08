@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class Sound 
+public class Sound
 {
     [SerializeField] private string name;
     [SerializeField] private AudioClip clip;
 
     [SerializeField] private bool loop;
 
-	[Range(0f, 3f)]
-	[SerializeField] private float volume;
-	
-	[Range(0.1f,3f)]
+    [Range(0f, 3f)]
+    [SerializeField] private float volume;
+
+    [Range(0.1f, 3f)]
     [SerializeField] private float pitch;
 
-	[HideInInspector]
+    [HideInInspector]
     private AudioSource source;
 
     public string Name { get => name; set => name = value; }

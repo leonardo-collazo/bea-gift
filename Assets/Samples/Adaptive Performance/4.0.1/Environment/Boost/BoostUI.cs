@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
-using UnityEngine.UI;
 
 public class BoostUI : MonoBehaviour
 {

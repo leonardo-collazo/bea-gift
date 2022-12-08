@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
+using UnityEngine;
 
 [CustomEditor(typeof(TestSequence))]
 public class TestSequenceEditor : Editor
@@ -17,26 +15,28 @@ public class TestSequenceEditor : Editor
             serializedObject.FindProperty("orderedLoadLevels"),
             true, true, true, true);
         list.drawElementCallback =
-            (Rect rect, int index, bool isActive, bool isFocused) => {
-            var element = list.serializedProperty.GetArrayElementAtIndex(index);
-            rect.y += 2;
-            EditorGUI.LabelField(new Rect(rect.x, rect.y, 40, EditorGUIUtility.singleLineHeight), "Stage:");
-            EditorGUI.PropertyField(
-                new Rect(rect.x + 50, rect.y, 60, EditorGUIUtility.singleLineHeight),
-                element.FindPropertyRelative("Name"), GUIContent.none);
-            EditorGUI.LabelField(new Rect(rect.x + 120, rect.y, 80, EditorGUIUtility.singleLineHeight), "Duration (s):");
-            EditorGUI.PropertyField(
-                new Rect(rect.x + 200, rect.y, 50, EditorGUIUtility.singleLineHeight),
-                element.FindPropertyRelative("Duration"), GUIContent.none);
-            EditorGUI.LabelField(new Rect(rect.x + 260, rect.y, 70, EditorGUIUtility.singleLineHeight), "Active: ");
-            string payload = "";
-            if (element.FindPropertyRelative("isActive").boolValue)
+            (Rect rect, int index, bool isActive, bool isFocused) =>
             {
-                payload = "►";
-            }
-            EditorGUI.LabelField(new Rect(rect.x + 330, rect.y, 20, EditorGUIUtility.singleLineHeight), payload);
-        };
-        list.drawHeaderCallback = (Rect rect) => {
+                var element = list.serializedProperty.GetArrayElementAtIndex(index);
+                rect.y += 2;
+                EditorGUI.LabelField(new Rect(rect.x, rect.y, 40, EditorGUIUtility.singleLineHeight), "Stage:");
+                EditorGUI.PropertyField(
+                    new Rect(rect.x + 50, rect.y, 60, EditorGUIUtility.singleLineHeight),
+                    element.FindPropertyRelative("Name"), GUIContent.none);
+                EditorGUI.LabelField(new Rect(rect.x + 120, rect.y, 80, EditorGUIUtility.singleLineHeight), "Duration (s):");
+                EditorGUI.PropertyField(
+                    new Rect(rect.x + 200, rect.y, 50, EditorGUIUtility.singleLineHeight),
+                    element.FindPropertyRelative("Duration"), GUIContent.none);
+                EditorGUI.LabelField(new Rect(rect.x + 260, rect.y, 70, EditorGUIUtility.singleLineHeight), "Active: ");
+                string payload = "";
+                if (element.FindPropertyRelative("isActive").boolValue)
+                {
+                    payload = "►";
+                }
+                EditorGUI.LabelField(new Rect(rect.x + 330, rect.y, 20, EditorGUIUtility.singleLineHeight), payload);
+            };
+        list.drawHeaderCallback = (Rect rect) =>
+        {
             EditorGUI.LabelField(rect, "Test Sequence");
         };
     }

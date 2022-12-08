@@ -5,9 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bound
-  - Wall
-  - Coin
   - Ground
+  - Barrel
+  - Leo
+  - Obstacle
+  - Food
+  - Wall
   layers:
   - Default
   - TransparentFX

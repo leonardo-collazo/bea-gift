@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
-using System.Diagnostics;
 using Debug = UnityEngine.Debug;
 public class AutoPerfControl : MonoBehaviour
 {

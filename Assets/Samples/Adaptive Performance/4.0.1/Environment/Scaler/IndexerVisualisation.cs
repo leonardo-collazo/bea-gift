@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AdaptivePerformance;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AdaptivePerformance;
+using UnityEngine.UI;
 
 public class IndexerVisualisation : MonoBehaviour
 {

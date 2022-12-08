@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyCoin : MonoBehaviour
+public class DeactivateObject : MonoBehaviour
 {
     // Deactivates this gameobject if it triggers with a bound
     private void OnTriggerEnter2D(Collider2D collision)

@@ -34,9 +34,9 @@ public class PlayerTailEffect : MonoBehaviour
         else
         {
             timeBtwSpawn = startTimeBtwSpawn;
-            
+
             GameObject tail = tilePool.GetPooledObject();
-            
+
             if (tail != null)
             {
                 tail.transform.position = transform.position;

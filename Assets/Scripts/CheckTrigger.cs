@@ -1,20 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Coin"))
+        if (collision.gameObject.CompareTag("Food"))
         {
             // Add score
-            FindObjectOfType<AudioManager>().Play("Coin");
+            FindObjectOfType<AudioManager>().Play("Food");
             GameManager.Instance.AddScore();
             collision.gameObject.SetActive(false);
         }
-        
-        if (collision.gameObject.CompareTag("Wall"))
+
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
             // Game Over
             FindObjectOfType<AudioManager>().Play("GameOver");

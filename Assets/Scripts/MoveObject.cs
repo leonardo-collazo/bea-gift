@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoveWall : MonoBehaviour
+public class MoveObject : MonoBehaviour
 {
     [SerializeField] float speed;
 
