@@ -1,1 +1,0 @@
-Thank you for purchasing the 150+ Food Icon Pack! Icons can be used by simply dragging them to the editor or used anywhere image assets are possible.

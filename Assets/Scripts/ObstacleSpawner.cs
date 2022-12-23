@@ -32,7 +32,7 @@ public class ObstacleSpawner : MonoBehaviour
             obstacle.SetActive(true);
             height = obstacle.GetComponent<InitialPosition>().StarterTransform.position.y;
             obstacle.transform.position = transform.position + new Vector3(0, height, 0);
-            
+
             SetSpawningTime();
         }
 

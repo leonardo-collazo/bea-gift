@@ -26,17 +26,14 @@ public class ParallaxBackground_0 : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         //Moving camera
         if (Camera_Move && GameManager.Instance.IsGameActive)
         {
             _camera.position += Vector3.right * Time.deltaTime * Camera_MoveSpeed;
         }
-    }
 
-    void Update()
-    {
         if (GameManager.Instance.IsGameActive)
         {
             for (int i = 0; i < 5; i++)
