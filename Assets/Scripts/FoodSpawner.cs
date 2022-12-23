@@ -18,7 +18,10 @@ public class FoodSpawner : MonoBehaviour
 
     void Update()
     {
-        SpawnFood();
+        if (GameManager.Instance.IsGameActive)
+        {
+            SpawnFood();
+        }
     }
 
     // Spawns a food after certain amount of time

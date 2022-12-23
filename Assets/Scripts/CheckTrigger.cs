@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class CheckTrigger : MonoBehaviour
 {
@@ -6,9 +7,16 @@ public class CheckTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Food"))
         {
-            // Add score
+            // Play the sound food
             FindObjectOfType<AudioManager>().Play("Food");
+
+            // Add score
             GameManager.Instance.AddScore();
+            
+            // Change to next background if score is a multiple of 5
+            GameManager.Instance.ChangeBackground();
+            
+            // Disable the food
             collision.gameObject.SetActive(false);
         }
 

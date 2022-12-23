@@ -17,7 +17,10 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Update()
     {
-        SpawnObstacle();
+        if (GameManager.Instance.IsGameActive)
+        {
+            SpawnObstacle();
+        }
     }
 
     // Spawns a obstacle after certain amount of time
