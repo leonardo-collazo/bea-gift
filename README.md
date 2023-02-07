@@ -3,7 +3,20 @@
 #### Description:
 1. **Technical information**
 
-   This project is a 2D endless running game for Android. It was created with Unity v2021.3.1.11f1 using C# as the programming language. The texture compression format used was ASTC. The minimum API level selected was Android 5.1 ´Lollipop´ (API Level 22). The scripting backend configured was Mono and the API compatibility level configured was .NET Standard 2.1. The video game has music, sounds, physics, collisions, animations, among other assets and components. All assets were downloaded from the Unity Asset Store or imported using the Unity Package Manager. A database was not used as it was not required in this case. The game does not require an internet connection.
+   This project is a 2D endless running game for Android. It was created with Unity v2021.3.1.11f1 using C# as the programming language. The Unity template used as a base was 2D Mobile v2.0.1. It is a preloaded template with recommended packages and settings for 2D mobile development with target platforms: Android and iOS. Among the preloaded packages are:
+   - com.unity.collab-proxy v1.15.7
+   - com.unity.feature.2d v1.0.0
+   - com.unity.feature.mobile v1.0.0
+   - Rider Editor v3.0.12
+   - Visual Studio Editor v2.0.12
+   - Visual Studio Code Editor v1.2.4
+   - Test Framework v1.1.30
+   - TextMeshPro v3.0.6
+   - Timeline v1.6.3
+   - Unity UI v1.0.0
+   - com.unity.visualscripting v1.7.6
+   
+   The texture compression format used was ASTC. The minimum API level selected was Android 5.1 ´Lollipop´ (API Level 22). The scripting backend configured was Mono and the API compatibility level configured was .NET Standard 2.1. The video game has music, sounds, physics, collisions, animations, among other assets and components. All assets were downloaded from the Unity Asset Store or imported using the Unity Package Manager. A database was not used as it was not required in this case. The game does not require an internet connection.
    
 2. **About the game**
    
