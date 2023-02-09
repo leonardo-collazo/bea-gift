@@ -16,7 +16,7 @@
    - Unity UI v1.0.0
    - com.unity.visualscripting v1.7.6
    
-   The texture compression format used was ASTC. The minimum API level selected was Android 5.1 ´Lollipop´ (API Level 22). The scripting backend configured was Mono and the API compatibility level configured was .NET Standard 2.1. The video game has music, sounds, physics, collisions, animations, among other assets and components. All assets were downloaded from the Unity Asset Store and imported using the Unity Package Manager. A database was not used as it was not required in this case. The game does not require an internet connection.
+   The texture compression format used was ASTC. The minimum API level selected was Android 5.1 ´Lollipop´ (API Level 22). The scripting backend configured was Mono and the API compatibility level configured was .NET Standard 2.1. The video game has music, sounds, physics, collisions, animations, among other assets and components. All assets were downloaded for free from the Unity Asset Store and imported with the Unity Package Manager. A database was not used as it was not required in this case. The game does not require an internet connection.
    
 2. **About the game**
    
@@ -50,29 +50,35 @@
    
      In the Scripts folder you will find all the scripts of the project, that is, all the videogame code. Next, the function of each script will be explained in a general way.
      
-     - *BackgroundControl_0*: controls the background change of the game. It is responsible for replacing each of the layers of the parallax background to achieve the complete change of the background. It has two functions that allow you to switch to the next or previous background.
+     - ***BackgroundControl_0***: controls the background change of the game. It is responsible for replacing each of the layers of the parallax background to achieve the complete change of the background. It has two functions that allow you to switch to the next or previous background.
      
-     - *CameraAnchor*: is in charge of adjusting and coupling the position of all the assets of the videogame within the screen regardless of the resolution or size of the mobile screen.
+     - ***CheckTrigger***: Check if the player collided with any trigger object. If it collided with a food then it plays a sound, increases the score, changes the background if the condition is met and deactivates the food. If it collided with an obstacle then it plays a sound, shows the Game Over menu and destroys the player.
      
-     - *CheckTrigger*: Check if the player collided with any trigger object. If it collided with a food then it plays a sound, increases the score, changes the background if the condition is met and deactivates the food. If it collided with an obstacle then it plays a sound, shows the Game Over menu and destroys the player.
+     - ***DeactivateObject***: deactivates the object if it collides with the limit that is in the left zone of the scene. This allows you to disable objects that no longer serve a purpose within the scene and thus avoid affecting performance.
      
-     - *DeactivateObject*: deactivates the object if it collides with the limit that is in the left zone of the scene. This allows you to disable objects that no longer serve a purpose within the scene and thus avoid affecting performance.
+     - ***FoodSpawner***: randomly spawns a food object every certain amount of time. This time is chosen randomly in a small range. Food is spawned in the right area of the screen.
      
-     - *FoodSpawner*: randomly spawns a food object every certain amount of time. This time is chosen randomly in a small range. Food is spawned in the right area of the screen.
+     - ***GameManager***: this script contains methods that control the general configuration of the game. Among these methods are: AddScore() which increases the score; UpdateScore() which updates the score displayed on the screen; GameOver() which displays the Game Over panel when the player loses; RestartLevel() that is responsible for restarting the game; ChangeBackground() which takes care of changing the background every time the player earns five points; PauseGame() which displays the Pause panel and stops the game from running.
      
-     - *GameManager*: this script contains methods that control the general configuration of the game. Among these methods are: AddScore() which increases the score; UpdateScore() which updates the score displayed on the screen; GameOver() which displays the Game Over panel when the player loses; RestartLevel() that is responsible for restarting the game; ChangeBackground() which takes care of changing the background every time the player earns five points; PauseGame() which displays the Pause panel and stops the game from running.
+     - ***InitialPosition***: saves the initial position of an object.
      
-     - *InitialPosition*: saves the initial position of an object.
+     - ***MoveObject***: moves the object to the left with a certain speed.
      
-     - *MoveObject*: moves the object to the left with a certain speed.
+     - ***MusicManager***: control the music of the game. It has two methods, one to play and one to stop the music.
      
-     - *MusicManager*: control the music of the game. It has two methods, one to play and one to stop the music.
+     - ***ObjectPooler***: This script creates an "object pool". Before starting the game, it instantiates a certain number of objects and stores them in a list, creating a "pool" to later be used during the game. In this case, two pools were created: one for obstacles and the other for food. Once an item is needed from a pool, it is activated and used. When it is no longer needed then the object is deactivated. This increases the performance of the game since it allows you to avoid instantiating or destroying an object during the game, it is only done once, at the beginning.
      
-     - *ObjectPooler*: This script creates an "object pool". Before starting the game, it instantiates a certain number of objects and stores them in a list, creating a "pool" to later be used during the game. In this case, two pools were created: one for obstacles and the other for food. Once an item is needed from a pool, it is activated and used. When it is no longer needed then the object is deactivated. This increases the performance of the game since it allows you to avoid instantiating or destroying an object during the game, it is only done once, at the beginning.
+     - ***ObstacleSpawner***: randomly spawns an obstacle object every certain amount of time. This time is chosen randomly in a small range. Obstacle is spawned in the right area of the screen.
      
-     - *ObstacleSpawner*: randomly spawns an obstacle object every certain amount of time. This time is chosen randomly in a small range. Obstacle is spawned in the right area of the screen.
+     - ***ParallaxBackground_0***: controls the behavior of the parallax background. It sets each layer that makes up the background, controls the speed of each, and controls the speed of the camera along with the background.
      
-     - *ParallaxBackground_0*: controls the behavior of the parallax background. It sets each layer that makes up the background, controls the speed of each, and controls the speed of the camera along with the background.
+     - ***Player***: contains all the code that controls the player. For example, it contains two methods that make the player jump and control it so that it only jumps twice in a row: Jump() and ResetJumps(). It also has a method that checks if the player collided with the ground to reset the number of jumps: OnCollisionEnter2D().
    
    - 3.7 **Sprites**
+     
+     The Sprites folder contains all the images used in the project. For example: the images that make up the parallax background with its different layers and settings, the elements of the menus and the HUD, the objects such as food and the obstacles that are generated during the game and the girl.
+     
    - 3.8 **TextMesh Pro**
+   
+     In the TextMesh Pro folder you will find the necessary documentation, configuration and resources to be able to use advanced text rendering in this project. It allows you to change the type of font, its color, its size, its position, among other characteristics.
+     
